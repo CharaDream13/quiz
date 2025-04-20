@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Лидерборд Викторины">
+    <meta name="author" content="CharaDream13 & SonoxPlay">
+    <title>Leaderboard - Quiz.fun</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <header>
+        <h1>Leaderboard</h1>
+    </header>
+
+    <section class="result">
+        <p class="score">Ваши очки: <span id="score">0</span></p>
+        <p class="correct_answers">Правильных ответов: <span id="correct_answers">0</span></p>
+        <p class="lives">Оставшиеся жизни: <span id="lives">❤️❤️❤️</span></p>
+    </section>
+
+    <footer>
+        <button onclick="startOver()">Начать сначала</button>
+    </footer>
+</main>
+<script>
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        score: params.get('score') || 0,
+        lives: params.get('lives') || 3,
+        correctAnswers: params.get('correctAnswers') || 0
+    };
+}
+function displayResults() {
+    const { score, lives, correctAnswers } = getQueryParams();
+
+    document.getElementById('score').textContent = score;
+    document.getElementById('correct_answers').textContent = correctAnswers;
+    const lifeIcons = '❤️'.repeat(lives);
+    document.getElementById('lives').textContent = lifeIcons;
+}
+window.onload = displayResults;
+function startOver() {
+    window.location.href = "index.html";
+}
+</script>
+    <script src="quiz.js"></script>
+</body>
+</html>

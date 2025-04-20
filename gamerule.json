@@ -1,0 +1,8 @@
+{
+    "lives": 3,
+    "timeLimit": 15,
+    "questionCount": 10,
+    "rareQuestionChance": 0.1,
+    "regularScore": 1,
+    "rareScore": 2
+}
